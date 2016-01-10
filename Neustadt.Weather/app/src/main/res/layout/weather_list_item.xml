@@ -6,32 +6,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id = "@+id/nightTemp"
-        android:textSize="24sp"
+        android:id = "@+id/minTemp"
+        android:textSize="32sp"
         android:layout_alignParentRight="true"
-        android:textColor="#00F"
+        android:textColor="#87CEEB"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id = "@+id/dayTemp"
-        android:textSize="24sp"
-        android:layout_toLeftOf="@id/nightTemp"
+        android:id = "@+id/maxTemp"
+        android:textSize="32sp"
+        android:layout_toLeftOf="@id/minTemp"
+        android:textColor="#FFFFFF"
           />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id = "@+id/dayOfWeek"
-        android:textSize="24sp"
-        android:layout_alignParentLeft="true"/>
+        android:textSize="32sp"
+        android:layout_alignParentLeft="true"
+        android:textColor="#FFFFFF"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id = "@+id/image"
-        android:textSize="24sp"
         android:layout_centerHorizontal="true"
+
         />
 </RelativeLayout>

@@ -9,29 +9,31 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 public class WeatherViewHolder extends RecyclerView.ViewHolder {
-
     private TextView dayOfWeek;
-    private TextView nightTemp;
-    private TextView dayTemp;
+    private TextView maxTemp;
+    private TextView minTemp;
     private ImageView image;
     private Context context;
+
 
     public WeatherViewHolder(View itemView, Context context) {
         super(itemView);
         this.context = context;
         dayOfWeek = (TextView) itemView.findViewById(R.id.dayOfWeek);
-        dayTemp = (TextView) itemView.findViewById(R.id.dayTemp);
-        nightTemp = (TextView) itemView.findViewById(R.id.nightTemp);
+        maxTemp = (TextView) itemView.findViewById(R.id.maxTemp);
+        minTemp = (TextView) itemView.findViewById(R.id.minTemp);
         image = (ImageView) itemView.findViewById(R.id.image);
-    }
+        }
 
     public void bind(WList list) {
         dayOfWeek.setText(list.getDate());
-        dayTemp.setText(String.valueOf((int) list.getDay()));
-        nightTemp.setText("  " + (int) list.getNight());
+        maxTemp.setText(list.getMax() + "°");
+        minTemp.setText("  " + list.getMin() + "°");
 
        Picasso.with(context).load("http://openweathermap.org/img/w/" +
               list.getIcon() + ".png").into(image);
+
+
 
     }
 }

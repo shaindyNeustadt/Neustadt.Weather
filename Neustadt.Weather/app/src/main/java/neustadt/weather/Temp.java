@@ -2,14 +2,19 @@ package neustadt.weather;
 
 public class Temp {
 
+	private double min;
+	private double max;
 	private double day;
-	private double night;
 
-	public double getDay(){
-		return day;
+	public int getMin(){
+		return (int)min;
 	}
-	public double getNight(){
-		return night;
+	public int getMax(){
+		return (int)max;
+	}
+
+	public int getDay(){
+		return (int)day;
 	}
 
 }

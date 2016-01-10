@@ -9,12 +9,16 @@ public class WList {
     private Weather[] weather;
     private Temp temp;
 
-    public double getDay() {
+    public int getMin() {
+        return temp.getMin();
+    }
+
+    public int getDay() {
         return temp.getDay();
     }
 
-    public double getNight() {
-        return temp.getNight();
+    public int getMax() {
+        return temp.getMax();
     }
 
     public String getDate() {
