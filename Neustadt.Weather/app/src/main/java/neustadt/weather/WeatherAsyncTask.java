@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class WeatherAsyncTask extends AsyncTask<Void, Void, WList[]> {
-private WList[] currentWeather;
+public class WeatherAsyncTask extends AsyncTask<Void, Void, ListItem[]> {
+private ListItem[] currentWeather;
 private RecyclerView recyclerView;
 
 public WeatherAsyncTask(RecyclerView recyclerView) {
@@ -22,7 +22,7 @@ public WeatherAsyncTask(RecyclerView recyclerView) {
         }
 
 @Override
-protected WList[] doInBackground(Void... params) {
+protected ListItem[] doInBackground(Void... params) {
         try {
             URL url = new URL(
                     "http://api.openweathermap.org/data/2.5/forecast/daily?q="
@@ -45,7 +45,7 @@ protected WList[] doInBackground(Void... params) {
         return currentWeather;
         }
 
-protected void onPostExecute(WList[] currentWeather){
+protected void onPostExecute(ListItem[] currentWeather){
         super.onPostExecute(currentWeather);
       // WeatherAdapter adapter = new WeatherAdapter(currentWeather);
       //  recyclerView.setAdapter(adapter);

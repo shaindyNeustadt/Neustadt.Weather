@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 
 public class WeatherAdapter  extends RecyclerView.Adapter<WeatherViewHolder> {
 
-        private WList[] currentWeather;
+        private ListItem[] currentWeather;
         private Context context;
 
-        public WeatherAdapter(WList[] currentWeather, Context context) {
+        public WeatherAdapter(ListItem[] currentWeather, Context context) {
             this.currentWeather = currentWeather;
             this.context = context;
         }

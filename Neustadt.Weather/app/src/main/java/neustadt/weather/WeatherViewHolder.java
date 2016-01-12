@@ -25,7 +25,7 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
         image = (ImageView) itemView.findViewById(R.id.image);
         }
 
-    public void bind(WList list) {
+    public void bind(ListItem list) {
         dayOfWeek.setText(list.getDate());
         maxTemp.setText(list.getMax() + "°");
         minTemp.setText("  " + list.getMin() + "°");

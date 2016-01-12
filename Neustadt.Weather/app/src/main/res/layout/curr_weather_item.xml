@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="500dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+      <ImageView
+          android:layout_width="50dip"
+          android:layout_height="50dip"
         android:id = "@+id/icon"
         android:layout_alignParentLeft="true"
+          android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
+        tools:text="icon"
+
         />
 
     <TextView
@@ -17,8 +24,10 @@
         android:id = "@+id/description"
         android:textSize="32sp"
         android:layout_toRightOf="@+id/icon"
+        android:layout_alignParentTop="true"
         android:textColor="#FFFFFF"
         android:background="@android:color/transparent"
+        tools:text="description"
         />
 
     <TextView
@@ -27,9 +36,10 @@
         android:id = "@+id/maxTemp"
         android:textSize="32sp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/icon"
+        android:layout_below="@+id/description"
         android:textColor="#FFFFFF"
         android:background="@android:color/transparent"
+        tools:text="maxTemp"
         />
 
     <TextView
@@ -38,9 +48,10 @@
         android:id = "@+id/minTemp"
         android:textSize="32sp"
         android:layout_toRightOf="@+id/maxTemp"
-        android:layout_below="@+id/icon"
+        android:layout_below="@+id/description"
         android:textColor="#FFFFFF"
         android:background="@android:color/transparent"
+        tools:text="minTemp"
         />
 
     <TextView
@@ -49,9 +60,9 @@
         android:id = "@+id/temp"
         android:textSize="115sp"
         android:layout_below="@+id/maxTemp"
-        android:layout_alignParentBottom="true"
         android:textColor="#FFFFFF"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        tools:text="temp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +71,8 @@
         android:textSize="32sp"
         android:layout_below="@+id/temp"
         android:textColor="#FFFFFF"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        tools:text="forecast"/>
 
 
 

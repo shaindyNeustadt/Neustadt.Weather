@@ -12,13 +12,13 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 // The items to display in your RecyclerView
-private List<WList> items;
+private List<ListItem> items;
     private Context context;
 
 
 
 // Provide a suitable constructor (depends on the kind of dataset)
-public RecyclerViewAdapter(List<WList> items, Context context) {
+public RecyclerViewAdapter(List<ListItem> items, Context context) {
         this.items = items;
        this.context = context;
         }

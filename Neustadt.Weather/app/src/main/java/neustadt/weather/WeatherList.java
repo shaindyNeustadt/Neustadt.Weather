@@ -2,9 +2,9 @@ package neustadt.weather;
 
 public class WeatherList {
 
-	private WList[] list;
+	private ListItem[] list;
 	
-	public WList[] getList(){
+	public ListItem[] getList(){
 		return this.list;
 	}
 }

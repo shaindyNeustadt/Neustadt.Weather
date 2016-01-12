@@ -2,4 +2,5 @@
 <resources>
     <item name="list" type="id" />
     <item name="description" type="id" />
+    <item name="viewPager" type="id" />
 </resources>
