@@ -1,6 +1,5 @@
 package neustadt.weather;
 
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,19 +9,15 @@ import android.view.ViewGroup;
 import java.util.List;
 
 public class DisplayWeatherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-    // The items to display in your RecyclerView
-    private List<ListItem> items;
+    private List<Object> items;
     private Context context;
 
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public DisplayWeatherAdapter(List<ListItem> items, Context context) {
+    public DisplayWeatherAdapter(List<Object> items, Context context) {
         this.items = items;
         this.context = context;
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return this.items.size();
@@ -30,7 +25,7 @@ public class DisplayWeatherAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (items.get(position) instanceof CurrentWeather) {
             return 0;
         } else {
             return 1;
@@ -60,11 +55,11 @@ public class DisplayWeatherAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         switch (viewHolder.getItemViewType()) {
             case 0:
                 CurrentWeatherViewHolder vh1 = (CurrentWeatherViewHolder) viewHolder;
-                vh1.bind(items.get(0));
+                vh1.bind((CurrentWeather) items.get(position));
                 break;
             case 1:
                 WeatherViewHolder vh2 = (WeatherViewHolder) viewHolder;
-                vh2.bind(items.get(position));
+                vh2.bind((ListItem) items.get(position));
                 break;
         }
     }

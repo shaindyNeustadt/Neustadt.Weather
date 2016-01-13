@@ -13,12 +13,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
         ArrayList<String> locations = new ArrayList<String>();
         locations.add("08817");
-        locations.add("08701");
+       // locations.add("08701");
         LocationsPagerAdapter pagerAdapter = new LocationsPagerAdapter(locations, this);
         viewPager.setAdapter(pagerAdapter);
-        }
+    }
 }
 

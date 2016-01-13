@@ -4,8 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="500dp">
-
+    android:paddingTop="525dp">
 
       <ImageView
           android:layout_width="50dip"
@@ -15,7 +14,6 @@
           android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
         tools:text="icon"
-
         />
 
     <TextView

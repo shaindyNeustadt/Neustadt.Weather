@@ -28,14 +28,14 @@ public class CurrentWeatherViewHolder extends RecyclerView.ViewHolder {
         forecast = (TextView) itemView.findViewById(R.id.forecast);
     }
 
-    public void bind(ListItem list) {
-        description.setText(list.getDescription());
-        maxTemp.setText(list.getMax() + "°");
-        minTemp.setText("        " + list.getMin() + "°");
+    public void bind(CurrentWeather currentWeather) {
+        description.setText(currentWeather.getDescription());
+        maxTemp.setText(currentWeather.getMax() + "°");
+        minTemp.setText("        " + currentWeather.getMin() + "°");
 
-        temp.setText(list.getDay() + "°");
+        temp.setText(currentWeather.getTemp() + "°");
         Picasso.with(context).load("http://openweathermap.org/img/w/" +
-                list.getIcon() + ".png").into(icon);
+                currentWeather.getIcon() + ".png").into(icon);
 
         forecast.setText("Forecast");
             }

@@ -8,13 +8,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id = "@+id/zip"
+        android:layout_alignParentRight="true"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        android:background="@android:color/transparent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/city"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
-        android:inputType="number"
+        android:layout_centerHorizontal="true"
         />
 
     <android.widget.TextClock
@@ -24,7 +33,7 @@
         android:textColor="#FFFFFF"
         android:format12Hour="hh:mm:ss aa"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/zip"
+        android:layout_below="@id/city"
         android:textSize="25dp"
         />
 
