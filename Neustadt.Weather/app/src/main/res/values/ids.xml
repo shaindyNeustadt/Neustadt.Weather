@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="list" type="id" />
-    <item name="description" type="id" />
-    <item name="viewPager" type="id" />
 </resources>
