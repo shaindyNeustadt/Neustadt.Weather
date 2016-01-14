@@ -39,7 +39,6 @@ public class LocationsPagerAdapter extends PagerAdapter {
     private TextView city;
     private WeatherService service1;
     private CurrentWeatherService service2;
-    private ImageView background;
     private EditText zipcode;
     private Button button;
 
@@ -74,10 +73,6 @@ public class LocationsPagerAdapter extends PagerAdapter {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(layoutManager);
-
-        background = (ImageView) view.findViewById(R.id.background);
-        Picasso.with(context).load("http://lorempixel.com/600/827/city").memoryPolicy(MemoryPolicy.NO_CACHE)
-                .networkPolicy(NetworkPolicy.NO_CACHE).into(background);
 
         button = (Button) view.findViewById(R.id.button);
         button.setText("+");
