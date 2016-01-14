@@ -38,7 +38,7 @@ public class CurrentWeatherViewHolder extends RecyclerView.ViewHolder {
                 currentWeather.getIcon() + ".png").into(icon);
 
         forecast.setText("Forecast");
-            }
+    }
 }
 
 

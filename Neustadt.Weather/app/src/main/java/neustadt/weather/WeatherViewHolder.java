@@ -23,16 +23,15 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
         maxTemp = (TextView) itemView.findViewById(R.id.maxTemp);
         minTemp = (TextView) itemView.findViewById(R.id.minTemp);
         image = (ImageView) itemView.findViewById(R.id.image);
-        }
+    }
 
     public void bind(ListItem list) {
         dayOfWeek.setText(list.getDate());
         maxTemp.setText(list.getMax() + "°");
         minTemp.setText("  " + list.getMin() + "°");
 
-       Picasso.with(context).load("http://openweathermap.org/img/w/" +
-              list.getIcon() + ".png").into(image);
-
+        Picasso.with(context).load("http://openweathermap.org/img/w/" +
+                list.getIcon() + ".png").into(image);
 
 
     }

@@ -25,7 +25,8 @@ public class CurrentWeather {
     public String getDescription() {
         return weather[0].getDescription();
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 

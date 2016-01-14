@@ -22,10 +22,10 @@ public class ListItem {
     }
 
     public String getDate() {
-        Date date =  new Date(dt * 1000);
+        Date date = new Date(dt * 1000);
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
         return formatter.format(date).toString();
-        }
+    }
 
 
     public String getIcon() {

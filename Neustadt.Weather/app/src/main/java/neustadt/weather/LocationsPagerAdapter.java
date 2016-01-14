@@ -14,13 +14,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +33,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class LocationsPagerAdapter extends PagerAdapter {
-    private List<String> locations;
+    private ArrayList<String> locations;
     private Context context;
     private TextView time;
     private TextView city;
@@ -38,9 +42,8 @@ public class LocationsPagerAdapter extends PagerAdapter {
     private ImageView background;
     private EditText zipcode;
     private Button button;
-    //lorempixel.com/600/827/city/
 
-    public LocationsPagerAdapter(List<String> locations, Context context) {
+    public LocationsPagerAdapter(ArrayList<String> locations, Context context) {
         this.locations = locations;
         this.context = context;
 
@@ -73,7 +76,8 @@ public class LocationsPagerAdapter extends PagerAdapter {
         recyclerView.setLayoutManager(layoutManager);
 
         background = (ImageView) view.findViewById(R.id.background);
-        Picasso.with(context).load("http://lorempixel.com/600/827/city").into(background);
+        Picasso.with(context).load("http://lorempixel.com/600/827/city").memoryPolicy(MemoryPolicy.NO_CACHE)
+                .networkPolicy(NetworkPolicy.NO_CACHE).into(background);
 
         button = (Button) view.findViewById(R.id.button);
         button.setText("+");
@@ -103,6 +107,7 @@ public class LocationsPagerAdapter extends PagerAdapter {
         });
 
         city = (TextView) view.findViewById(R.id.city);
+        city.setText(locations.get(position));
         time = (android.widget.TextClock) view.findViewById(R.id.time);
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss aa");
         Date today = new Date();
@@ -113,14 +118,14 @@ public class LocationsPagerAdapter extends PagerAdapter {
         map.put("appid", "bfe3377fe84c32565da01db51fc8f33c");
         map.put("units", "imperial");
 
-        final List<Object> list = new ArrayList<>();
+        final ArrayList<Object> list = new ArrayList<>();
 
         Call<CurrentWeather> callCurrent = service2.currentWeatherInfo(map);
         callCurrent.enqueue(new Callback<CurrentWeather>() {
             @Override
             public void onResponse(Response<CurrentWeather> response) {
                 CurrentWeather currentWeather = response.body();
-                list.add(currentWeather);
+                list.add(0, currentWeather);
                 city.setText(currentWeather.getName());
             }
 
@@ -137,7 +142,6 @@ public class LocationsPagerAdapter extends PagerAdapter {
             public void onResponse(Response<WeatherList> response) {
                 WeatherList weatherList = response.body();
                 ListItem[] listItems = weatherList.getList();
-
                 for (ListItem item : listItems) {
                     list.add(item);
                 }
@@ -157,4 +161,5 @@ public class LocationsPagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
     }
+
 }
