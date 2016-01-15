@@ -10,4 +10,7 @@ public interface WeatherService {
 
     @GET("/data/2.5/forecast/daily?")
     Call<WeatherList> listWeather(@QueryMap Map<String, String> zip);
+
+    @GET("/data/2.5/weather?")
+    Call<CurrentWeather> currentWeatherInfo(@QueryMap Map<String, String> zip);
 }

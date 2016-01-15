@@ -37,8 +37,7 @@ public class LocationsPagerAdapter extends PagerAdapter {
     private Context context;
     private TextView time;
     private TextView city;
-    private WeatherService service1;
-    private CurrentWeatherService service2;
+    private WeatherService service;
     private EditText zipcode;
     private Button button;
 
@@ -50,9 +49,8 @@ public class LocationsPagerAdapter extends PagerAdapter {
                 .baseUrl("http://api.openweathermap.org")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        service1 = retrofit.create(WeatherService.class);
-        service2 = retrofit.create(CurrentWeatherService.class);
-    }
+        service = retrofit.create(WeatherService.class);
+        }
 
     @Override
     public int getCount() {
@@ -115,7 +113,7 @@ public class LocationsPagerAdapter extends PagerAdapter {
 
         final ArrayList<Object> list = new ArrayList<>();
 
-        Call<CurrentWeather> callCurrent = service2.currentWeatherInfo(map);
+        Call<CurrentWeather> callCurrent = service.currentWeatherInfo(map);
         callCurrent.enqueue(new Callback<CurrentWeather>() {
             @Override
             public void onResponse(Response<CurrentWeather> response) {
@@ -130,7 +128,7 @@ public class LocationsPagerAdapter extends PagerAdapter {
         });
 
         map.put("cnt", "16");
-        Call<WeatherList> call = service1.listWeather(map);
+        Call<WeatherList> call = service.listWeather(map);
         call.enqueue(new Callback<WeatherList>() {
 
             @Override
